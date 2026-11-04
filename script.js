@@ -24,7 +24,10 @@ const ICONS = {
 const links = {
   group: CONFIG.whatsappGroup,
   dm: CONFIG.whatsappNumber ? `https://wa.me/${CONFIG.whatsappNumber}` : "",
-  call: CONFIG.callNumber ? `tel:+${CONFIG.callNumber}` : ""
+  call: CONFIG.callNumber ? `tel:+${CONFIG.callNumber}` : "",
+  share: "https://wa.me/?text=" + encodeURIComponent(
+    "आनन्द आसीवाल | सरपंच पद हेतु उम्मीदवार, कुकनवाली\nपारदर्शिता | अधिकार | मिलकर विकास\nhttps://anandasiwal.in/?ref=share"
+  )
 };
 
 document.querySelectorAll("[data-link]").forEach(a => {
@@ -107,7 +110,7 @@ if (CONFIG.goatcounter) {
 
   const clickName = a => {
     if (a.closest("#social")) return (a.title || "social").toLowerCase();
-    const base = { group: "whatsapp-group", dm: "whatsapp-dm", call: "call" }[a.dataset.link];
+    const base = { group: "whatsapp-group", dm: "whatsapp-dm", call: "call", share: "share" }[a.dataset.link];
     if (!base) return null;
     const where = a.id === "fab" ? "floating"
       : a.closest(".hero") ? "hero"
