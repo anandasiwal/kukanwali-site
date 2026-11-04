@@ -9,7 +9,8 @@ const CONFIG = {
     YouTube: ""
   },
   voteStart: "2026-11-16T07:00:00",  // matdan shuru (phone ke local time se)
-  voteEnd: "2026-11-16T18:00:00"     // matdan samapt
+  voteEnd: "2026-11-16T18:00:00",    // matdan samapt
+  goatcounter: "anandasiwal"  // GoatCounter site code (goatcounter.com par bana hua), khali = analytics band
 };
 
 const ICONS = {
@@ -95,3 +96,32 @@ function tick() {
 }
 tick();
 setInterval(tick, 30000);
+
+// ---- analytics (GoatCounter): page visits + button clicks ----
+if (CONFIG.goatcounter) {
+  const gc = document.createElement("script");
+  gc.async = true;
+  gc.src = "//gc.zgo.at/count.js";
+  gc.dataset.goatcounter = `https://${CONFIG.goatcounter}.goatcounter.com/count`;
+  document.head.appendChild(gc);
+
+  const clickName = a => {
+    if (a.closest("#social")) return (a.title || "social").toLowerCase();
+    const base = { group: "whatsapp-group", dm: "whatsapp-dm", call: "call" }[a.dataset.link];
+    if (!base) return null;
+    const where = a.id === "fab" ? "floating"
+      : a.closest(".hero") ? "hero"
+      : a.closest("footer") ? "footer"
+      : "bottom";
+    return `${base}-${where}`;
+  };
+
+  document.addEventListener("click", e => {
+    const a = e.target.closest("a");
+    if (!a || a.getAttribute("aria-disabled") === "true") return;
+    const name = clickName(a);
+    if (name && window.goatcounter && window.goatcounter.count) {
+      window.goatcounter.count({ path: `click/${name}`, title: name, event: true });
+    }
+  });
+}
