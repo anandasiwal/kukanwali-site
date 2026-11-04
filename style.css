@@ -163,6 +163,8 @@ footer { position: relative; background: var(--green-dark); color: #fff; padding
 .footer-top { display: flex; flex-direction: column; align-items: center; gap: 24px; }
 .footer-top .photo-wrap { width: 150px; height: 150px; }
 footer .namebox p { margin: 0; }
+.call-line { margin: 14px 0 0; font-weight: 700; font-size: 1.15rem; }
+.call-line a { color: var(--mustard); text-decoration: none; }
 footer .namebox .tagline { margin-top: 12px; }
 .social { display: flex; gap: 14px; justify-content: center; margin-top: 16px; }
 .social a {

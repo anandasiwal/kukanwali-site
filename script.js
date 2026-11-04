@@ -2,6 +2,7 @@
 const CONFIG = {
   whatsappGroup: "https://chat.whatsapp.com/HzbrWaiLSrY7ErFzOdDgWq",
   whatsappNumber: "919660000367",  // country code ke saath, bina + ke
+  callNumber: "919660000367",      // calling number, country code ke saath, bina +
   social: {            // jinka link ho wahi bharo (Facebook, Instagram, YouTube)
     Facebook: "https://www.facebook.com/AnandKAsiwal",
     Instagram: "https://www.instagram.com/anandkasiwal/",
@@ -21,7 +22,8 @@ const ICONS = {
 // ---- links ----
 const links = {
   group: CONFIG.whatsappGroup,
-  dm: CONFIG.whatsappNumber ? `https://wa.me/${CONFIG.whatsappNumber}` : ""
+  dm: CONFIG.whatsappNumber ? `https://wa.me/${CONFIG.whatsappNumber}` : "",
+  call: CONFIG.callNumber ? `tel:+${CONFIG.callNumber}` : ""
 };
 
 document.querySelectorAll("[data-link]").forEach(a => {
