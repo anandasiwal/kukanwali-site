@@ -8,6 +8,7 @@ const CONFIG = {
     Instagram: "https://www.instagram.com/anandkasiwal/",
     YouTube: ""
   },
+  youtubeVideo: "prN6jBhVN8I",  // YouTube video ID (youtu.be/ ke baad wala hissa), khali = video section band
   voteStart: "2026-11-16T07:00:00",  // matdan shuru (phone ke local time se)
   voteEnd: "2026-11-16T18:00:00",    // matdan samapt
   goatcounter: "anandasiwal"  // GoatCounter site code (goatcounter.com par bana hua), khali = analytics band
@@ -55,6 +56,26 @@ Object.entries(CONFIG.social).forEach(([name, url]) => {
   a.innerHTML = ICONS[name] || name[0];
   socialBox.appendChild(a);
 });
+
+// ---- video (click-to-play, YouTube loads only on tap) ----
+if (CONFIG.youtubeVideo) {
+  const sec = document.getElementById("video-section");
+  const btn = document.getElementById("video");
+  document.getElementById("video-thumb").src = `https://img.youtube.com/vi/${CONFIG.youtubeVideo}/hqdefault.jpg`;
+  sec.hidden = false;
+  btn.addEventListener("click", () => {
+    const f = document.createElement("iframe");
+    f.src = `https://www.youtube-nocookie.com/embed/${CONFIG.youtubeVideo}?autoplay=1&rel=0&modestbranding=1`;
+    f.title = "मेरा संदेश";
+    f.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
+    f.allowFullscreen = true;
+    f.className = "video";
+    btn.replaceWith(f);
+    if (window.goatcounter && window.goatcounter.count) {
+      window.goatcounter.count({ path: "click/video-play", title: "video-play", event: true });
+    }
+  });
+}
 
 // ---- scroll reveal ----
 const revealEls = document.querySelectorAll(".reveal");
