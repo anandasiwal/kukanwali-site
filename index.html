@@ -27,6 +27,8 @@
     .thanks .namebox { margin-top: 22px; }
     .thanks .namebox p { margin: 0; }
     .thanks .sign { color: var(--green-dark); }
+    .thanks .social a { background: var(--green); color: #fff; }
+    .thanks .social { margin-top: 20px; }
     .thanks-foot { text-align: center; padding: 14px 16px 22px; font-size: .95rem; color: var(--green-dark); font-weight: 600; }
   </style>
 </head>
@@ -47,6 +49,11 @@
         <p class="sign">✍️ आनन्द आसीवाल</p>
         <p>📍 ग्राम पंचायत कुकनवाली</p>
       </div>
+      <div class="social" id="social">
+        <a href="https://www.facebook.com/AnandKAsiwal" target="_blank" rel="noopener" title="Facebook" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.5 9.9v-7H8v-2.9h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z"/></svg></a>
+        <a href="https://www.instagram.com/anandkasiwal/" target="_blank" rel="noopener" title="Instagram" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+        <a href="https://www.youtube.com/@AnandKAsiwal" target="_blank" rel="noopener" title="YouTube" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.7 15.1V8.9l5.4 3.1-5.4 3.1z"/></svg></a>
+      </div>
     </div>
   </div>
 </header>
@@ -54,5 +61,14 @@
 <p class="thanks-foot">anandasiwal.in</p>
 
 <script data-goatcounter="https://anandasiwal.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script>
+  document.getElementById("social").addEventListener("click", function (e) {
+    var a = e.target.closest("a");
+    if (a && window.goatcounter && window.goatcounter.count) {
+      var n = a.title.toLowerCase();
+      window.goatcounter.count({ path: "click/" + n, title: n, event: true });
+    }
+  });
+</script>
 </body>
 </html>
