@@ -22,7 +22,11 @@
     .thanks .hero-inner { flex-direction: column; text-align: center; padding-top: 30px; }
     .thanks .photo-wrap { width: 230px; height: 230px; margin: 12px; }
     .thanks h2 { font-size: 2.2rem; color: var(--navy); margin: 0 0 6px; }
-    .thanks h2::after { margin: 10px auto 0; }
+    .thanks h2::after {
+      content: ""; display: block; width: 90px; height: 4px; margin: 10px auto 0; border-radius: 2px;
+      background: linear-gradient(90deg, #FF9933 33.33%, #fff 33.33% 66.66%, #138808 66.66%);
+      box-shadow: 0 0 0 1px rgba(11,31,107,.15);
+    }
     .thanks-msg { max-width: 560px; margin: 14px auto 0; font-size: 1.15rem; font-weight: 600; color: var(--navy); }
     .thanks .namebox { margin-top: 22px; }
     .thanks .namebox p { margin: 0; }
@@ -42,12 +46,9 @@
       <img class="photo" src="assets/photo3.webp" alt="आनन्द आसीवाल" onerror="this.style.display='none'">
     </div>
     <div class="hero-text">
-      <p class="namaste">🙏 नमस्ते कुकनवाली 🙏</p>
       <h2>धन्यवाद</h2>
-      <p class="thanks-msg">आप सभी के स्नेह, विश्वास और सहयोग के लिए हृदय से धन्यवाद।</p>
       <div class="namebox">
         <p class="sign">✍️ आनन्द आसीवाल</p>
-        <p>📍 ग्राम पंचायत कुकनवाली</p>
       </div>
       <div class="social" id="social">
         <a href="https://www.facebook.com/AnandKAsiwal" target="_blank" rel="noopener" title="Facebook" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.5 9.9v-7H8v-2.9h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z"/></svg></a>
@@ -57,8 +58,6 @@
     </div>
   </div>
 </header>
-
-<p class="thanks-foot">anandasiwal.in</p>
 
 <script data-goatcounter="https://anandasiwal.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script>
